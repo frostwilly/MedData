@@ -1,20 +1,13 @@
 'use strict';
 module.exports = function (sequelize, DataTypes){
-  var Medicine = sequelize.define('Medicine', {
+  var Medicine = sequelize.define('Medicines', {
     medicine_id: {
       type: DataTypes.INTEGER,
       primaryKey: true
-    }
+    },
     medicine_type: DataTypes.ENUM('GENERIC', 'SPECIALIZED'),
     medicine_name: DataTypes.STRING,
-    dosage: DataTypes.DECIMAL,
     rules: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models){
-        UserRecord.hasMany(models.MedicalActivity, { foreignKey: 'user_id' });
-      }
-    }
   });
   return Medicine;
 };
