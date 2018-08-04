@@ -3,6 +3,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const Sequelize = require('sequelize');
 
+const host_server = 2000;
+
 const sequelize = new Sequelize('med_database', 'postgres', '123456', {
   host: 'localhost',
   dialect: 'postgres'
@@ -16,4 +18,4 @@ app.use(bodyParser.json());
 
 require('./app/routes.js')(app, sequelize);
 
-const server = app.listen(2000, () => console.log('Listening on port 2000'));
+const server = app.listen(host_server, () => console.log('Listening on port', host_server));
