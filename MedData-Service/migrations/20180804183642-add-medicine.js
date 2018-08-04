@@ -2,19 +2,19 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Medicine', {
+    return queryInterface.createTable('Medicines', {
       medicine_id: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         primaryKey: true
-      }
-      medicine_type: DataTypes.ENUM('GENERIC', 'SPECIALIZED'),
-      medicine_name: DataTypes.STRING,
-      dosage: DataTypes.DECIMAL,
-      rules: DataTypes.STRING
+      },
+      medicine_type: Sequelize.ENUM('GENERIC', 'SPECIALIZED'),
+      medicine_name: Sequelize.STRING,
+      dosage: Sequelize.DECIMAL,
+      rules: Sequelize.STRING
     });
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Medicine');
+    return queryInterface.dropTable('Medicines');
   }
 };

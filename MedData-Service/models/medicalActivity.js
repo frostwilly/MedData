@@ -1,6 +1,6 @@
 'use strict';
 module.exports = function (sequelize, DataTypes){
-  var MedicalActivity: sequelize.define('MedicalActivities', {
+  var MedicalActivity: sequelize.define('MedicalActivity', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true
