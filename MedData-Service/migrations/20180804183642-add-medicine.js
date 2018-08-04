@@ -4,13 +4,13 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Medicine', {
       medicine_id: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         primaryKey: true
-      }
-      medicine_type: DataTypes.ENUM('GENERIC', 'SPECIALIZED'),
-      medicine_name: DataTypes.STRING,
-      dosage: DataTypes.DECIMAL,
-      rules: DataTypes.STRING
+      },
+      medicine_type: Sequelize.ENUM('GENERIC', 'SPECIALIZED'),
+      medicine_name: Sequelize.STRING,
+      dosage: Sequelize.DECIMAL,
+      rules: Sequelize.STRING
     });
   },
 

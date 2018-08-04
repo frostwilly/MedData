@@ -5,20 +5,20 @@ module.exports = {
     return queryInterface.createTable('Prescription', {
       prescription_id: {
         primaryKey: true,
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         autoIncrement: true
       },
-      expired_date: DataTypes.DATE,
-      hospital: DataTypes.STRING,
-      doctor_name: DataTypes.STRING,
-      medicine: DataTypes.JSON,
-      hospital_stamp: DataTypes.BOOLEAN,
-      signed_date: DataTypes.DATE,
+      expired_date: Sequelize.DATE,
+      hospital: Sequelize.STRING,
+      doctor_name: Sequelize.STRING,
+      medicine: Sequelize.JSON,
+      hospital_stamp: Sequelize.BOOLEAN,
+      signed_date: Sequelize.DATE,
       counter: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         defaultValue: 0
       },
-      repetition: DataTypes.INTEGER
+      repetition: Sequelize.INTEGER
     });
   },
 
