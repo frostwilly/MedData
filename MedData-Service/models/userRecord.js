@@ -1,6 +1,6 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  const UserRecord = sequelize.define('UserRecord', {
+  const UserRecord = sequelize.define('UserRecords', {
     user_id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
@@ -11,7 +11,10 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     blood_type: DataTypes.ENUM('A+', 'A-', 'O+', 'O-', 'AB+', 'AB-', 'B+', 'B-'),
-    source_hospital: DataTypes.STRING
+    source_hospital: DataTypes.STRING,
+    height: DataTypes.DECIMAL,
+    weight: DataTypes.DECIMAL,
+    allergies: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models){

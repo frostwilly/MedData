@@ -1,13 +1,14 @@
 'use strict';
 module.exports = function (sequelize, DataTypes){
-  var MedicalActivity: sequelize.define('MedicalActivity', {
+  var MedicalActivity: sequelize.define('MedicalActivities', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true
     },
     diagnosis: DataTypes.STRING,
     prescription_id: DataTypes.INTEGER,
-    notes: DataTypes.STRING
+    notes: DataTypes.STRING,
+    user_id: DataTypes.INTEGER
   }, {
     classMethods: {
       associate: function(models){
