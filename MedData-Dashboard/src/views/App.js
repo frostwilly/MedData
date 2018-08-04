@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
-
+import React, { Component } from 'react';
+import MedicalRecords from '../components/medical-records/medical-records'
 import './App.scss';
 
 class App extends Component {
-  render(){
-    return(
-      <h1>Hello World!</h1>
+  render() {
+    return (
+      <MedicalRecords />
     )
   }
 }
