@@ -12,7 +12,9 @@ module.exports = {
       blood_type: Sequelize.ENUM('A+', 'A-', 'O+', 'O-', 'AB+', 'AB-', 'B+', 'B-'),
       source_hospital: Sequelize.STRING,
       createdAt: Sequelize.DATE,
-      updatedAt: Sequelize.DATE
+      height: DataTypes.DECIMAL,
+      weight: DataTypes.DECIMAL,
+      allergies: DataTypes.STRING
     });
   },
 
