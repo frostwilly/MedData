@@ -11,7 +11,7 @@ module.exports = function (sequelize, DataTypes) {
     dosage: DataTypes.DECIMAL,
     rules: DataTypes.STRING
   }, {
-    
+
   });
 
   return Medicine;
