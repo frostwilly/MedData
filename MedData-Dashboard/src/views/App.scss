@@ -1,5 +1,27 @@
 @import "../themes/common";
 
-h1 {
-  color: blue;
+body{
+  background-color: #F6F6F6;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(155,155,155,0.10); 
+  border-radius: 4px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #2BAB7B; 
+  border-radius: 4px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(28, 129, 92); 
 }
