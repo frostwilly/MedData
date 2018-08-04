@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('UserRecord', {
+    return queryInterface.createTable('UserRecords', {
       user_id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -11,13 +11,14 @@ module.exports = {
       ktp: Sequelize.INTEGER,
       blood_type: Sequelize.ENUM('A+', 'A-', 'O+', 'O-', 'AB+', 'AB-', 'B+', 'B-'),
       source_hospital: Sequelize.STRING,
-      height: Sequelize.DECIMAL,
-      weight: Sequelize.DECIMAL,
-      allergies: Sequelize.STRING,
+      createdAt: Sequelize.DATE,
+      height: DataTypes.DECIMAL,
+      weight: DataTypes.DECIMAL,
+      allergies: DataTypes.STRING
     });
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('UserRecord');
+    return queryInterface.dropTable('UserRecords');
   }
 };

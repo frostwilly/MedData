@@ -35,14 +35,14 @@ module.exports = (app, sequelize) => {
     res.send("Hello there, use our API!")
   });
 
-  app.post('/create_user_data/:id', (req, res) => {
+  app.post('/create_user_data', (req, res) => {
     userRecord.create({
-      user_id: req.params.id,
+      user_id: req.body.user_id,
       ktp: req.body.ktp,
       blood_type: req.body.blood_type,
       source_hospital: req.body.source_hospital
     })
-    .then(() => res.send(`${user_id} data taken!`));
+    .then(() => res.send(`${req.body.user_id} loan id data taken!`));
   });
 
   app.get("/user_data/:id", (req, res) => {
@@ -51,7 +51,7 @@ module.exports = (app, sequelize) => {
     })
     .then(loan => {
       if (!loan) res.send(`${req.params.id} loan id not found`);
-      res.send(loan); 
+      res.send(loan);
     });
   });
 }
