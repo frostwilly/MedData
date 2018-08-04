@@ -1,6 +1,6 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  const UserRecord = sequelize.define('UserRecord', {
+  const UserRecord = sequelize.define('UserRecords', {
     user_id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
