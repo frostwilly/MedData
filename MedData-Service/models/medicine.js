@@ -10,10 +10,10 @@ module.exports = function (sequelize, DataTypes) {
     medicine_name: DataTypes.STRING,
     dosage: DataTypes.DECIMAL,
     rules: DataTypes.STRING,
-    createdAt: {
-      type: DataTypes.DATE,
-      field: 'beginTime',
-      defaultValue: sequelize.literal('NOW()')
+    repetition: DataTypes.INTEGER,
+    counter: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0
     }
   }, {
     timestamp: true
