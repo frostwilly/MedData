@@ -9,14 +9,19 @@ module.exports = function (sequelize, DataTypes){
     prescription_id: DataTypes.INTEGER,
     notes: DataTypes.STRING,
     hospital: DataTypes.STRING,
-    createdAt: 'TIMESTAMP',
-    user_id: DataTypes.INTEGER
+    user_id: DataTypes.INTEGER,
+    createdAt: {
+      type: 'TIMESTAMP',
+      defaultValue: sequelize.literal('NOW()')
+    }
   }, {
     classMethods: {
       associate: function(models){
-        ModelActivity.hasOne(models.Prescription, { foreignKey: 'prescription_id' });
-      }
-    }
+        MedicalActivity.hasOne(models.Prescription, { foreignKey: 'prescription_id' });
+      },
+      timestamp: true
+    },
+
   });
   return MedicalActivity;
 };

@@ -105,11 +105,34 @@ module.exports = (app, sequelize) => {
   });
 
   app.get("/prescription/:id", (req, res) => {
-    medicalActivity.findOne({
+    prescription.findOne({
       where: {prescription_id: req.params.id}
     })
     .then(id => {
-      if (!id) res.send(`${req.params.id} user id not found`);
+      if (!id) res.send(`${req.params.id} prescription id not found`);
+      res.send(id);
+    });
+  });
+
+  app.post("/create_medicine", (req, res) => {
+    medicine.create({
+      medicine_id: req.params.id,
+      medicine_type: req.body.medicine_type,
+      medicine_name: req.body.medicine_name,
+      dosage: req.body.dosage,
+      rules: req.body.rules,
+      repetition: req.body.repetition,
+      counter: req.body.counter
+    })
+    .then(() => res.send(`Medicine id:${req.params.id} created`));
+  })
+
+  app.get("/medicine/:id", (req, res) => {
+    medicine.findOne({
+      where: {medicine_id: req.params.id}
+    })
+    .then(id => {
+      if (!id) res.send(`${req.params.id} medicine id not found`);
       res.send(id);
     });
   });

@@ -17,7 +17,11 @@ module.exports = function(sequelize, DataTypes) {
     allergies: DataTypes.STRING,
     name: DataTypes.STRING,
     phone_number: DataTypes.STRING,
-    birthday: DataTypes.DATE
+    birthday: DataTypes.DATE,
+    createdAt: {
+      type: DataTypes.DATE,
+      defaultValue: sequelize.literal('NOW()')
+    }
   }, {
     classMethods: {
       associate: function(models) {

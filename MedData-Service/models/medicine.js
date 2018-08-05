@@ -9,9 +9,14 @@ module.exports = function (sequelize, DataTypes) {
     medicine_type: DataTypes.ENUM('GENERIC', 'SPECIALIZED'),
     medicine_name: DataTypes.STRING,
     dosage: DataTypes.DECIMAL,
-    rules: DataTypes.STRING
+    rules: DataTypes.STRING,
+    repetition: DataTypes.INTEGER,
+    counter: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0
+    }
   }, {
-    
+    timestamp: true
   });
 
   return Medicine;

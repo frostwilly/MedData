@@ -1,0 +1,63 @@
+const Model = require('./models');
+
+//populate data for Medicine Table
+
+Model.sequelize.query(`INSERT INTO "Medicines"
+("medicine_id", "medicine_type", "medicine_name", "dosage", "rules")
+VALUES
+(1, 'GENERIC', 'Paracetamol', 1000, 'Take 2 pills a time, 4 hours apart, and no more than 8 pills a day')
+`)
+.then(() => {
+  Model.sequelize.query(`INSERT INTO "Medicines"
+  ("medicine_id", "medicine_type", "medicine_name", "dosage", "rules")
+  VALUES
+  (2, 'GENERIC', 'Hydrocodone', 500, 'Take 1 pills a time, 4 hours apart, and no more than 8 pills a day')
+  `);
+})
+.then(() => {
+  Model.sequelize.query(`INSERT INTO "Medicines"
+  ("medicine_id", "medicine_type", "medicine_name", "dosage", "rules")
+  VALUES
+  (3, 'GENERIC', 'Amoxicillin', 1000, 'Take 2 pills a time, 3 times a day')
+  `);
+})
+.then(() => {
+  Model.sequelize.query(`INSERT INTO "Medicines"
+  ("medicine_id", "medicine_type", "medicine_name", "dosage", "rules")
+  VALUES
+  (4, 'GENERIC', 'Amoxicillin', 1000, 'Take 2 pills a time, 3 times a day')
+  `);
+  })
+.then(() => {
+  Model.sequelize.query(`INSERT INTO "Medicines"
+  ("medicine_id", "medicine_type", "medicine_name", "dosage", "rules")
+  VALUES
+  (5, 'SPECIALIZED', 'Hydrochlorothiazide', 2000, 'Take 1 pill a time, 3 times a day')
+  `);
+  })
+.then(() => {
+  Model.sequelize.query(`INSERT INTO "Medicines"
+  ("medicine_id", "medicine_type", "medicine_name", "dosage", "rules")
+  VALUES
+  (6, 'GENERIC', 'Lisinopril', 1000, 'Take 2 pills a time, 2 times a day')
+  `);
+  })
+.then(() => {
+  Model.sequelize.query(`INSERT INTO "Medicines"
+  ("medicine_id", "medicine_type", "medicine_name", "dosage", "rules")
+  VALUES
+  (7, 'GENERIC', 'Ibuprofen', 1000, 'Take 3 pills a time, 2 times a day')
+  `);
+  })
+.then(() => {
+  Model.sequelize.query(`INSERT INTO "Medicines"
+  ("medicine_id", "medicine_type", "medicine_name", "dosage", "rules")
+  VALUES
+  (8, 'GENERIC', 'Cytoxan', 1000, 'Take 1 pills a time, 1 times a day, beware of side-effects')
+  `);
+}).catch((err) => {
+  console.error(err);
+});
+
+
+//populate user_Record Table

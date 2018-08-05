@@ -5,6 +5,7 @@ class Vital extends Component {
   render() {
     return (
       <div className="vital-card">
+        <span className="vital">Vital Statistics</span>
         <div className="vital-wrapper">
           <div className="vital-first-column">
             <span className="vital-desc">Height</span>
