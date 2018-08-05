@@ -11,7 +11,8 @@ class MedicalRecords extends Component {
   constructor() {
     super()
     this.state = {
-      tabSelected: "records"
+      tabSelected: "records",
+      show: true
     }
   }
 
@@ -32,8 +33,7 @@ class MedicalRecords extends Component {
             this.state.tabSelected === "prescriptions" ?
               <Prescriptions /> : ''
         }
-
-        <InputForm />
+        <InputForm reset={this.reset} />
 
       </div>
     )
