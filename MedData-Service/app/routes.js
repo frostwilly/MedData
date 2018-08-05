@@ -49,7 +49,9 @@ module.exports = (app, sequelize) => {
       weight: req.body.weight,
       allergies: req.body.allergies,
       phone: req.body.phone,
-      birthday: req.body.birthday
+      birthday: req.body.birthday,
+      name: req.body.name,
+      phone: req.body.phone
     })
     .then(() => res.send(`${req.params.id} data saved!`));
   });
@@ -60,11 +62,15 @@ module.exports = (app, sequelize) => {
     })
     .then(user_data => {
       if (!user_data) return res.send(`${req.params.id} user id not found`);
+      console.log(user_data);
       const data = {
         name: user_data.name,
         age: moment().diff(user_data.birthday, 'years'),
         ktp: user_data.ktp,
-        phone: user_data.phone
+        phone: user_data.phone,
+        blood_type: user_data.blood_type,
+        height: user_data.height,
+        weight: user_data.weight
       };
 
       res.send(data);
@@ -80,7 +86,7 @@ module.exports = (app, sequelize) => {
       hospital: req.body.hospital,
       user_id: req.body.user_id,
     })
-    .then(() => res.send(`Medical Activity id:${req.params.id} created`));
+    .then(() => res.send(`Medical Activity id: ${req.params.id} created`));
   });
 
   app.get("/records/:id", (req, res) => {

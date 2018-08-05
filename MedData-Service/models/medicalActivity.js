@@ -9,11 +9,7 @@ module.exports = function (sequelize, DataTypes){
     prescription_id: DataTypes.INTEGER,
     notes: DataTypes.STRING,
     hospital: DataTypes.STRING,
-    user_id: DataTypes.INTEGER,
-    createdAt: {
-      type: 'TIMESTAMP',
-      defaultValue: sequelize.literal('NOW()')
-    }
+    user_id: DataTypes.INTEGER
   }, {
     classMethods: {
       associate: function(models){
