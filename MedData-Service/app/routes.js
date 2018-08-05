@@ -56,7 +56,7 @@ module.exports = (app, sequelize) => {
       where: { user_id: req.params.id }
     })
     .then(user_data => {
-      if (!uset_data) return res.send(`${req.params.id} user id not found`);
+      if (!user_data) return res.send(`${req.params.id} user id not found`);
       res.send(user_data);
     });
   });
@@ -67,7 +67,8 @@ module.exports = (app, sequelize) => {
       diagnosis: req.body.diagnosis,
       prescription_id: req.body.prescription_id,
       notes: req.body.notes,
-      user_id: req.body.user_id
+      hospital: req.body.hospital,
+      user_id: req.body.user_id,
     })
     .then(() => res.send(`Medical Activity id:${req.params.id} created`));
   });
@@ -78,12 +79,9 @@ module.exports = (app, sequelize) => {
       order: [
         ['createdAt',  'DESC']
       ],
-      attributes: ['diagnosis', 'notes', 'createdAt'],
+      attributes: ['diagnosis', 'notes', 'createdAt', 'hospital']
     })
     .then(medical_activity => {
-      const records = [{}]
-
-
       if (!medical_activity) return res.send(`${req.params.id} user id not found`);
       res.send(medical_activity);
     });
