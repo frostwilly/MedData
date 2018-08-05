@@ -7,6 +7,14 @@ module.exports = {
         type: Sequelize.INTEGER,
         primaryKey: true
       },
+      createdAt: {
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+       },
+       updatedAt: {
+         type: 'TIMESTAMP',
+         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+       },
       medicine_type: Sequelize.ENUM('GENERIC', 'SPECIALIZED'),
       medicine_name: Sequelize.STRING,
       dosage: Sequelize.DECIMAL,

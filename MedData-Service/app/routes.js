@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize');
+const moment = require('moment');
 // const
 //
 //
@@ -46,9 +47,11 @@ module.exports = (app, sequelize) => {
       source_hospital: req.body.source_hospital,
       height: req.body.height,
       weight: req.body.weight,
-      allergies: req.body.allergies
+      allergies: req.body.allergies,
+      phone: req.body.phone,
+      birthday: req.body.birthday
     })
-    .then(() => res.send(`${user_id} data taken!`));
+    .then(() => res.send(`${req.params.id} data saved!`));
   });
 
   app.get("/user_data/:id", (req, res) => {
@@ -57,7 +60,14 @@ module.exports = (app, sequelize) => {
     })
     .then(user_data => {
       if (!user_data) return res.send(`${req.params.id} user id not found`);
-      res.send(user_data);
+      const data = {
+        name: user_data.name,
+        age: moment().diff(user_data.birthday, 'years'),
+        ktp: user_data.ktp,
+        phone: user_data.phone
+      };
+
+      res.send(data);
     });
   });
 

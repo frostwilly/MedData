@@ -16,12 +16,8 @@ module.exports = function(sequelize, DataTypes) {
     weight: DataTypes.DECIMAL,
     allergies: DataTypes.STRING,
     name: DataTypes.STRING,
-    phone_number: DataTypes.STRING,
-    birthday: DataTypes.DATE,
-    createdAt: {
-      type: DataTypes.DATE,
-      defaultValue: sequelize.literal('NOW()')
-    }
+    phone: DataTypes.STRING,
+    birthday: DataTypes.DATE
   }, {
     classMethods: {
       associate: function(models) {

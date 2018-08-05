@@ -9,9 +9,13 @@ module.exports = {
         autoIncrement: true
       },
       createdAt: {
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.literal('NOW()')
-      },
+        type: 'TIMESTAMP',
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+       },
+     updatedAt: {
+       type: 'TIMESTAMP',
+       defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+     },
       expired_date: Sequelize.DATE,
       hospital: Sequelize.STRING,
       doctor_name: Sequelize.STRING,

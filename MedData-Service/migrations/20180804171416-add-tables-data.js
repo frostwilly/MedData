@@ -13,12 +13,16 @@ module.exports = {
       source_hospital: Sequelize.STRING,
       createdAt: {
         type: 'TIMESTAMP',
-        defaultValue: Sequelize.literal('NOW()')
-     },
-      height: Sequelize.DECIMAL,
-      weight: Sequelize.DECIMAL,
-      allergies: Sequelize.STRING,
-    });
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+       },
+       updatedAt: {
+         type: 'TIMESTAMP',
+         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+       },
+       height: Sequelize.DECIMAL,
+       weight: Sequelize.DECIMAL,
+       allergies: Sequelize.STRING,
+      });
   },
 
   down: (queryInterface, Sequelize) => {
