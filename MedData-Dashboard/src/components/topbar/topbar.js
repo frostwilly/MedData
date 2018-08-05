@@ -19,9 +19,10 @@ class TopBar extends Component {
     return (
       <div className="topbar" ref="topbar">
         <img src={logo} alt="logo" />
-        <a href="#">Export as PDF</a>
+        <a href="https://app.box.com/s/vboedq5biiuyoe6mtonmuz2013uyfb40" target="_blank">Export as PDF</a>
         <a href="#">Export as CSV</a>
         <a href="#" style={{ float: "right" }}>Logout</a>
+        <span style={{ float: "right" }}>Medistra Hospital</span>
       </div>
     )
   }

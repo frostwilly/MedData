@@ -9,11 +9,11 @@ class Vital extends Component {
         <div className="vital-wrapper">
           <div className="vital-first-column">
             <span className="vital-desc">Height</span>
-            <span>{this.props.data.height} cm</span>
+            <span>{this.props.data.height ? this.props.data.height : '160'} cm</span>
             <span className="vital-desc">Weight</span>
-            <span>{this.props.data.weight} kg</span>
+            <span>{this.props.data.weight ? this.props.data.weight : '80'} kg</span>
             <span className="vital-desc">Blood Type</span>
-            <span>{this.props.data.blood_type}</span>
+            <span>{this.props.data.blood_type ? this.props.data.blood_type : 'O+'}</span>
           </div>
           <div className="vital-second-column">
             <span className="vital-desc">Allergies</span>

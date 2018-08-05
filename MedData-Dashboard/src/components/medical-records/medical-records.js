@@ -53,7 +53,7 @@ class MedicalRecords extends Component {
           //   })
           //   this.skipIntro();
           // }
-        })
+        }).catch(console.log)
       }
     )
   }
