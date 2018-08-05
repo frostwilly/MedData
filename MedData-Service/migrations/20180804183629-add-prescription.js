@@ -17,12 +17,7 @@ module.exports = {
       doctor_name: Sequelize.STRING,
       medicine: Sequelize.JSON,
       hospital_stamp: Sequelize.BOOLEAN,
-      signed_date: Sequelize.DATE,
-      counter: {
-        type: Sequelize.INTEGER,
-        defaultValue: 0
-      },
-      repetition: Sequelize.INTEGER
+      signed_date: Sequelize.DATE
     });
   },
 

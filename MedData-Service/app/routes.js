@@ -106,6 +106,19 @@ module.exports = (app, sequelize) => {
     });
   });
 
+  app.post("/create_medicine", (req, res) => {
+    medicine.create({
+      medicine_id: req.params.id,
+      medicine_type: req.body.medicine_type,
+      medicine_name: req.body.medicine_name,
+      dosage: req.body.dosage,
+      rules: req.body.rules,
+      repetition: req.body.repetition,
+      counter: req.body.counter
+    })
+    .then(() => res.send(`Medicine id:${req.params.id} created`));
+  })
+
   app.get("/medicine/:id", (req, res) => {
     medicine.findOne({
       where: {medicine_id: req.params.id}
