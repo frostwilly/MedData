@@ -1,6 +1,6 @@
 'use strict';
 module.exports = function (sequelize, DataTypes){
-  var MedicalActivity: sequelize.define('MedicalActivity', {
+  var MedicalActivity = sequelize.define('MedicalActivity', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true
@@ -8,6 +8,8 @@ module.exports = function (sequelize, DataTypes){
     diagnosis: DataTypes.STRING,
     prescription_id: DataTypes.INTEGER,
     notes: DataTypes.STRING,
+    hospital: DataTypes.STRING,
+    createdAt: 'TIMESTAMP',
     user_id: DataTypes.INTEGER
   }, {
     classMethods: {

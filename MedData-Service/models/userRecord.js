@@ -20,7 +20,7 @@ module.exports = function(sequelize, DataTypes) {
     birthday: DataTypes.DATE
   }, {
     classMethods: {
-      associate: function(models){
+      associate: function(models) {
         UserRecord.hasMany(models.MedicalActivity, { foreignKey: 'user_id' });
       }
     }
