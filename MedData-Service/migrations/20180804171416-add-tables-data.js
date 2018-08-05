@@ -8,7 +8,7 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true
       },
-      ktp: Sequelize.INTEGER,
+      ktp: Sequelize.STRING,
       blood_type: Sequelize.ENUM('A+', 'A-', 'O+', 'O-', 'AB+', 'AB-', 'B+', 'B-'),
       source_hospital: Sequelize.STRING,
       createdAt: {

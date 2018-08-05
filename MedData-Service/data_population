@@ -61,3 +61,9 @@ VALUES
 
 
 //populate user_Record Table
+
+Model.sequelize.query(`INSERT INTO "UserRecords"
+("user_id", "ktp", "blood_type", "source_hospital", "height", "weight", "allergies", "name", "phone_number", "birthday")
+VALUES
+(1, '3582749102346701', 'A+', 'Siloam Hospital', 170, 60, 'Allergies to crustacean', 'Mark Lee', 087812345678, "1996-10-11")
+`)

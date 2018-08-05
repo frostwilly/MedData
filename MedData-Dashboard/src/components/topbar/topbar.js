@@ -16,7 +16,6 @@ class TopBar extends Component {
     });
   }
   render() {
-    console.log(window.pageYOffset);
     return (
       <div className="topbar" ref="topbar">
         <img src={logo} alt="logo" />

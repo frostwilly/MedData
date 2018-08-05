@@ -9,15 +9,14 @@ class InputForm extends Component {
   }
 
   handleSubmit = () => {
-    this.forceUpdate()
+    window.location.reload()
   }
 
   render() {
-    console.log(this.state);
     return (
       <div className="input-form-card">
         <Form
-          onSubmit={submittedValues => this.setState({ submittedValues })}>
+          onSubmit={submittedValues => { this.setState({ submittedValues }, this.handleSubmit) }}>
           {formApi => (
             <div>
               <form onSubmit={formApi.submitForm} id="dynamic-form">
@@ -57,7 +56,7 @@ class InputForm extends Component {
                   onClick={() => formApi.addValue('drugs', '')}
                   type="button"
                   className="mb-4 mr-4 btn btn-success">Add drug</button>
-                <button type="submit" className="mb-4 btn btn-primary" onSubmit={this.handleSubmit}>Submit</button>
+                <button type="submit" className="mb-4 btn btn-primary">Submit</button>
               </form>
             </div>
           )}
