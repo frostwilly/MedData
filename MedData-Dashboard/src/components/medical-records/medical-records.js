@@ -5,6 +5,7 @@ import Switch from '../switch/switch'
 import Records from '../records/records'
 import './medical-records.scss';
 import Prescriptions from '../prescriptions/prescriptions';
+import InputForm from '../input-form/input-form';
 
 class MedicalRecords extends Component {
   constructor() {
@@ -31,6 +32,8 @@ class MedicalRecords extends Component {
             this.state.tabSelected === "prescriptions" ?
               <Prescriptions /> : ''
         }
+
+        <InputForm />
 
       </div>
     )
