@@ -11,10 +11,10 @@ module.exports = {
       ktp: Sequelize.INTEGER,
       blood_type: Sequelize.ENUM('A+', 'A-', 'O+', 'O-', 'AB+', 'AB-', 'B+', 'B-'),
       source_hospital: Sequelize.STRING,
-      createdAt: Sequelize.DATE,
-      height: DataTypes.DECIMAL,
-      weight: DataTypes.DECIMAL,
-      allergies: DataTypes.STRING
+      createdAt: Sequelize.
+      height: Sequelize.DECIMAL,
+      weight: Sequelize.DECIMAL,
+      allergies: Sequelize.STRING,
     });
   },
 
