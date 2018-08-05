@@ -6,6 +6,10 @@ module.exports = function (sequelize, DataTypes){
       type: DataTypes.INTEGER,
       autoIncrement: true
     },
+    createdAt: {
+      type: DataTypes.DATE,
+      defaultValue: sequelize.literal('NOW()')
+    },
     expired_date: DataTypes.DATE,
     hospital: DataTypes.STRING,
     doctor_name: DataTypes.STRING,

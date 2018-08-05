@@ -14,7 +14,12 @@ module.exports = function(sequelize, DataTypes) {
     source_hospital: DataTypes.STRING,
     height: DataTypes.DECIMAL,
     weight: DataTypes.DECIMAL,
-    allergies: DataTypes.STRING
+    allergies: DataTypes.STRING,
+    createdAt: {
+      type: DataTypes.DATE,
+      field: 'beginTime',
+      defaultValue: sequelize.literal('NOW()')
+    }
   }, {
     classMethods: {
       associate: function(models){

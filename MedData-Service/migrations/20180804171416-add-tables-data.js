@@ -11,7 +11,10 @@ module.exports = {
       ktp: Sequelize.INTEGER,
       blood_type: Sequelize.ENUM('A+', 'A-', 'O+', 'O-', 'AB+', 'AB-', 'B+', 'B-'),
       source_hospital: Sequelize.STRING,
-      createdAt: Sequelize.
+      createdAt: {
+      type: Sequelize.DATE,
+      defaultValue: Sequelize.literal('NOW()')
+     },
       height: Sequelize.DECIMAL,
       weight: Sequelize.DECIMAL,
       allergies: Sequelize.STRING,

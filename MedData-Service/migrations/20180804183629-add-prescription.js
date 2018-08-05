@@ -8,6 +8,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         autoIncrement: true
       },
+      createdAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('NOW()')
+      },
       expired_date: Sequelize.DATE,
       hospital: Sequelize.STRING,
       doctor_name: Sequelize.STRING,

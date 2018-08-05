@@ -8,13 +8,19 @@ module.exports = function (sequelize, DataTypes){
     diagnosis: DataTypes.STRING,
     prescription_id: DataTypes.INTEGER,
     notes: DataTypes.STRING,
-    user_id: DataTypes.INTEGER
+    user_id: DataTypes.INTEGER,
+    createdAt: {
+      type: DataTypes.DATE,
+      defaultValue: sequelize.literal('NOW()')
+    }
   }, {
     classMethods: {
       associate: function(models){
         MedicalActivity.hasOne(models.Prescription, { foreignKey: 'prescription_id' });
-      }
-    }
+      },
+      timestamp: true
+    },
+
   });
   return MedicalActivity;
 };

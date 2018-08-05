@@ -9,9 +9,14 @@ module.exports = function (sequelize, DataTypes) {
     medicine_type: DataTypes.ENUM('GENERIC', 'SPECIALIZED'),
     medicine_name: DataTypes.STRING,
     dosage: DataTypes.DECIMAL,
-    rules: DataTypes.STRING
+    rules: DataTypes.STRING,
+    createdAt: {
+      type: DataTypes.DATE,
+      field: 'beginTime',
+      defaultValue: sequelize.literal('NOW()')
+    }
   }, {
-
+    timestamp: true
   });
 
   return Medicine;
