@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const Sequelize = require('sequelize');
 
@@ -10,6 +11,7 @@ const sequelize = new Sequelize('med_database', 'postgres', '123456', {
   dialect: 'postgres'
 });
 
+app.use(cors());
 app.use(bodyParser.urlencoded({
 	extended: true
 }));
