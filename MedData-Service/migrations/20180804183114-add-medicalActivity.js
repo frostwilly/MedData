@@ -12,7 +12,7 @@ module.exports = {
       notes: Sequelize.STRING,
       user_id: Sequelize.INTEGER,
       createdAt: {
-        type: Sequelize.DATE,
+        type: 'TIMESTAMP',
         defaultValue: Sequelize.literal('NOW()')
 }
     });

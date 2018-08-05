@@ -8,9 +8,10 @@ module.exports = function (sequelize, DataTypes){
     diagnosis: DataTypes.STRING,
     prescription_id: DataTypes.INTEGER,
     notes: DataTypes.STRING,
+    hospital: DataTypes.STRING,
     user_id: DataTypes.INTEGER,
     createdAt: {
-      type: DataTypes.DATE,
+      type: 'TIMESTAMP',
       defaultValue: sequelize.literal('NOW()')
     }
   }, {

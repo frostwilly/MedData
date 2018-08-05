@@ -2,25 +2,20 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.addColumn('UserRecords', {
-      ''
+    return queryInterface.addColumn('UserRecords', 'birthday', {
+      type: Sequelize.DATE,
     })
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.createTable('users', { id: Sequelize.INTEGER });
-    */
+    .then(() => queryInterface.addColumn(`UserRecords`, 'phone', {
+      type: Sequelize.STRING
+    }))
+    .then(() => queryInterface.addColumn('UserRecords', 'name', {
+      type: Sequelize.STRING
+    }));
   },
 
   down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.dropTable('users');
-    */
+    return queryInterface.removeColumn('UserRecords', 'birthday')
+    .then(() => queryInterface.removeColumn('UserRecords', 'phone'))
+    .then(() => queryInterface.removeColumn('UserRecords', 'name'));
   }
 };
