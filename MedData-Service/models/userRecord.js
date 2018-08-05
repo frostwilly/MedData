@@ -14,7 +14,10 @@ module.exports = function(sequelize, DataTypes) {
     source_hospital: DataTypes.STRING,
     height: DataTypes.DECIMAL,
     weight: DataTypes.DECIMAL,
-    allergies: DataTypes.STRING
+    allergies: DataTypes.STRING,
+    name: DataTypes.STRING,
+    phone_number: DataTypes.STRING,
+    birthday: DataTypes.DATE
   }, {
     classMethods: {
       associate: function(models){
