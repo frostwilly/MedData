@@ -9,15 +9,15 @@ class Vital extends Component {
         <div className="vital-wrapper">
           <div className="vital-first-column">
             <span className="vital-desc">Height</span>
-            <span>170 cm</span>
+            <span>{this.props.data.height} cm</span>
             <span className="vital-desc">Weight</span>
-            <span>60 kg</span>
+            <span>{this.props.data.weight} kg</span>
             <span className="vital-desc">Blood Type</span>
-            <span>O+</span>
+            <span>{this.props.data.blood_type}</span>
           </div>
           <div className="vital-second-column">
             <span className="vital-desc">Allergies</span>
-            <span>Pollen, Bacteria, and Water.</span>
+            <span>Pollen.</span>
           </div>
         </div>
       </div>

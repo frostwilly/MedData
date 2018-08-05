@@ -7,12 +7,15 @@ import './medical-records.scss';
 import Prescriptions from '../prescriptions/prescriptions';
 import InputForm from '../input-form/input-form';
 
+var link = "http://612004f4.ngrok.io/";
+
 class MedicalRecords extends Component {
   constructor() {
     super()
     this.state = {
       tabSelected: "records",
-      show: true
+      show: true,
+      data: {},
     }
   }
 
@@ -22,11 +25,44 @@ class MedicalRecords extends Component {
     })
   }
 
+  componentWillMount() {
+    fetch(link+'user_data/10', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    }).then(
+      (res) => {
+        res.json().then(result => {
+          this.setState({
+            data: result
+          })
+          // if (result.error) {
+          //   this.props.setBukalapakIsFindingApplicant({ isFindingApplicant: false })
+          //   this.props.setNewAlert("Username tidak terdaftar")
+          // }
+          // else {
+          //   this.props.setNewAlert("", false);
+          //   this.props.setBukalapakUsernameNotInputted({
+          //     usernameNotInputted: false
+          //   })
+          //   this.props.setBukalapakPrefill({
+          //     username: result.usernameData,
+          //     email: result.email,
+          //     shop_name: result.storename
+          //   })
+          //   this.skipIntro();
+          // }
+        })
+      }
+    )
+  }
+
   render() {
     return (
       <div className="wrapper">
-        <Profile />
-        <Vital />
+        <Profile data={this.state.data} />
+        <Vital data={this.state.data} />
         <Switch tabSelected={this.state.tabSelected} onClickTabButton={this.handleTabButton} />
         {
           this.state.tabSelected === "records" ? <Records /> :
