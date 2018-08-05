@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   }, {
     classMethods: {
-      associate: function(models){
+      associate: function(models) {
         UserRecord.hasMany(models.MedicalActivity, { foreignKey: 'user_id' });
       }
     }

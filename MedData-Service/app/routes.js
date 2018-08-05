@@ -33,6 +33,7 @@ module.exports = (app, sequelize) => {
   const medicalActivity = require('../models/medicalActivity.js')(sequelize, Sequelize);
   const prescription = require('../models/prescription.js')(sequelize, Sequelize);
 
+
   app.get("/", (req, res) => {
     res.send("Hello there, use our API!")
   });
@@ -54,9 +55,9 @@ module.exports = (app, sequelize) => {
     userRecord.findOne({
       where: { user_id: req.params.id }
     })
-    .then(id => {
-      if (!id) res.send(`${req.params.id} user id not found`);
-      res.send(id);
+    .then(user_data => {
+      if (!user_data) return res.send(`${req.params.id} user id not found`);
+      res.send(user_data);
     });
   });
 
@@ -66,18 +67,23 @@ module.exports = (app, sequelize) => {
       diagnosis: req.body.diagnosis,
       prescription_id: req.body.prescription_id,
       notes: req.body.notes,
-      user_id: req.body.user_id
+      hospital: req.body.hospital,
+      user_id: req.body.user_id,
     })
     .then(() => res.send(`Medical Activity id:${req.params.id} created`));
   });
 
-  app.get("/medical_activity/:id", (req, res) => {
-    medicalActivity.findOne({
-      where: {id: req.params.id}
+  app.get("/records/:id", (req, res) => {
+    userRecord.findAll({
+      where: { user_id: req.params.id },
+      order: [
+        ['createdAt',  'DESC']
+      ],
+      attributes: ['diagnosis', 'notes', 'createdAt', 'hospital']
     })
-    .then(id => {
-      if (!id) res.send(`${req.params.id} user id not found`);
-      res.send(id);
+    .then(medical_activity => {
+      if (!medical_activity) return res.send(`${req.params.id} user id not found`);
+      res.send(medical_activity);
     });
   });
 
